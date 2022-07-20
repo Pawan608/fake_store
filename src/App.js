@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import Home from "./pages/home";
+import ProductDetails from "./pages/productDetails";
 function App() {
+  const [loadingScript, setLoadingscript] = useState(null);
+  console.log("hello", loadingScript);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route
+          path="/"
+          element={<Home setLoadingscript={setLoadingscript} />}
+        />
+        <Route
+          path="/:productId"
+          element={
+            <ProductDetails
+              loadingScript={loadingScript}
+              setLoadingscript={setLoadingscript}
+            />
+          }
+        />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

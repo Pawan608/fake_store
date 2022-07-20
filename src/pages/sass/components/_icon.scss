@@ -1,0 +1,27 @@
+.rating__icon {
+  fill: $color-secondary-light;
+  stroke: $color-secondary-dark;
+  stroke-width: 0.1rem;
+  width: 3rem;
+  height: 3rem;
+}
+.icon__alert {
+  width: 4.5rem;
+  height: 4.5rem;
+  fill: red;
+  stroke-width: 0.5rem;
+}
+.icon__heart {
+  width: 4.5rem;
+  height: 4.5rem;
+  fill: rgb(255, 1, 43);
+  stroke-width: 0.5rem;
+  transition: all 0.25s;
+  &--unliked {
+    fill: rgb(91, 54, 54);
+  }
+  &--liked {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

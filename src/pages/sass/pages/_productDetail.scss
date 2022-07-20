@@ -1,0 +1,187 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(40rem, 2fr)) minmax(23.5rem, 1fr);
+  margin: 2rem;
+  grid-template-rows: repeat(1, 1fr);
+  @media only screen and (max-width: 93.75em) {
+    grid-template-columns: repeat(2, minmax(40rem, 1fr));
+  }
+  @media only screen and (max-width: 71.8em) {
+    grid-template-columns: repeat(1, minmax(40rem, 1fr));
+  }
+  &__picture {
+    width: 100%;
+    cursor: pointer;
+    @media only screen and (max-width: 93.75em) {
+      height: 80rem;
+    }
+    &--1 {
+      width: 100%;
+      object-fit: contain;
+      @media only screen and (max-width: 93.75em) {
+        height: 80rem;
+      }
+    }
+    &:hover + .container__details {
+      display: none;
+      @media only screen and (max-width: 71.8em) {
+        display: block;
+      }
+    }
+    &:hover ~ .container__zoom {
+      display: block;
+      @media only screen and (max-width: 71.8em) {
+        display: none;
+      }
+    }
+  }
+  &__details {
+    @media only screen and (max-width: 93.75em) {
+      justify-self: center;
+      align-self: center;
+    }
+    &__title {
+      font-size: 3rem;
+      font-weight: 500;
+      -webkit-background-clip: text;
+      margin-bottom: 2rem;
+    }
+    &__rating {
+      padding-bottom: 4px;
+      border-bottom: 1px solid black;
+    }
+    &__price {
+      margin: 5px;
+      font-size: 2.5rem;
+      font-weight: 500;
+    }
+    &__description {
+      margin: 20px;
+      font-size: 1.2rem;
+      color: $color-black;
+      & > * {
+        -moz-hyphens: auto;
+        -ms-hyphens: auto;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+        letter-spacing: 0.5px;
+        &:not(:last-child) {
+          margin-bottom: 5px;
+        }
+      }
+    }
+    &__wishlist {
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: 1px solid rgb(146, 141, 141);
+      border-radius: 10px;
+      box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+      margin: 5px;
+    }
+  }
+  &__checkout {
+    border: 1px solid black;
+    margin-left: 3rem;
+    border-radius: 10px;
+    box-shadow: 0 1rem 2rem rgba($color-black, 0.2);
+    height: 30rem;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    // @media only screen and (max-width: 100em) {
+    //   height: 40rem;
+    // }
+    @media only screen and (max-width: 93.75em) {
+      height: 110%;
+      margin-left: 0;
+      align-self: center;
+      justify-self: center;
+      width: 100%;
+      position: relative;
+    }
+    @media only screen and (max-width: 71.8em) {
+      width: 60%;
+      margin-top: 3rem;
+    }
+    &__price {
+      margin-top: 1rem;
+      font-size: 2.5rem;
+      font-weight: 500;
+    }
+    &__delivery {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: rgb(9, 89, 142);
+      &--span {
+        color: black;
+      }
+    }
+    &__stock {
+      color: $color-primary-light;
+      margin-top: 3rem;
+      font-size: 1.5rem;
+      font-weight: 300rem;
+      align-self: flex-start;
+      margin-left: 1rem;
+      text-transform: uppercase;
+      @media only screen and (max-width: 93.75em) {
+        align-self: center;
+      }
+    }
+    &__quantity {
+      font-size: 1.2rem;
+      margin-top: 1rem;
+      margin-left: 1rem;
+      align-self: flex-start;
+      @media only screen and (max-width: 93.75em) {
+        align-self: center;
+        text-align: center;
+      }
+    }
+    &__cart {
+      margin: 1rem;
+    }
+  }
+  &__zoom {
+    background-color: $color-white;
+    display: none;
+    border: 1px solid black;
+    border-radius: 10px;
+  }
+}
+.wishlist__icon {
+  width: 30%;
+  height: 5rem;
+}
+.wishlist {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  font-weight: 200;
+}
+.horizontal {
+  border-bottom: 1px solid black;
+  margin: 10px 0px;
+  @media only screen and (max-width: 71.8em) {
+    display: none;
+  }
+}
+
+.quantity {
+  width: 25%;
+  text-align: center;
+}
+
+.btn-buy {
+  width: 120%;
+  left: -8%;
+}
+.img-zoom-lens {
+  position: absolute;
+  border: 1px solid #d4d4d4;
+  /*set the size of the lens:*/
+  width: 10rem;
+  height: 10rem;
+}
